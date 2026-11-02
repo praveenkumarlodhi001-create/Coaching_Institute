@@ -1,0 +1,23 @@
+/* Coaching: dealt learning cards, floating skill chips, punchy entrances */
+.fxc-chips{position:absolute;right:2%;top:20%;width:230px;height:340px;pointer-events:none;z-index:4}
+.fxc-chips span{position:absolute;left:var(--x);top:var(--y);padding:10px 16px;border-radius:999px;background:#0b1020cc;border:1px solid var(--lime,#d7f36b);color:#fff;font:600 13px var(--display,sans-serif);backdrop-filter:blur(6px);opacity:0;animation:fxcPop .6s cubic-bezier(.34,1.56,.64,1) var(--d) forwards,fxcBob 4.5s ease-in-out calc(var(--d) + .6s) infinite alternate}
+.fxc-chips span:nth-child(even){border-color:var(--cyan,#78d8d1)}
+@keyframes fxcPop{from{opacity:0;transform:scale(.4) translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fxcBob{to{transform:translateY(-12px)}}
+.fxc-js .program-card.fxc-in-pre,.fxc-js .mentor-card.fxc-in-pre{opacity:0;translate:0 30px;scale:.94}
+.fxc-js .fxc-in-pre.fxc-in{opacity:1;translate:0 0;scale:1;transition:opacity .45s ease var(--dl,0s),translate .65s cubic-bezier(.34,1.56,.64,1) var(--dl,0s),scale .65s cubic-bezier(.34,1.56,.64,1) var(--dl,0s)}
+.fxc-learn{padding:clamp(70px,9vw,120px) 7%;background:var(--night,#0b1020);color:#fff}
+.fxc-learn h2{font:700 clamp(36px,5vw,68px)/1.05 var(--display,sans-serif);letter-spacing:-.04em;margin:0 0 14px}.fxc-learn>p{max-width:440px;color:#a9b2c8;line-height:1.75;margin:0 0 46px}
+.fxc-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fxc-card{margin:0;background:var(--night2,#111a2c);border:1px solid #ffffff1c;border-radius:16px;overflow:hidden;transform:rotate(var(--r,0deg));transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s}
+.fxc-js .fxc-card{opacity:0;transform:translate(-40px,60px) rotate(calc(var(--r)*-5)) scale(.88)}
+.fxc-js .fxc-card.in{opacity:1;transform:rotate(var(--r));transition:opacity .4s ease calc(var(--i)*90ms),transform .8s cubic-bezier(.34,1.56,.64,1) calc(var(--i)*90ms)}
+.fxc-js .fxc-card.in.settled{transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s}
+.fxc-card:hover,.fxc-card:focus-within{transform:rotate(0) translateY(-8px) scale(1.02);border-color:var(--lime,#d7f36b);box-shadow:0 22px 50px #000a,0 0 30px #d7f36b2a}
+.fxc-card .ph{aspect-ratio:4/3;overflow:hidden;background:#1a2540}.fxc-card img{width:100%;height:100%;object-fit:cover;display:block}
+.fxc-card figcaption{padding:16px 18px 20px}.fxc-card h3{margin:0 0 6px;font:700 17px var(--display,sans-serif)}.fxc-card p{margin:0;font-size:13px;line-height:1.6;color:#a9b2c8}
+.fxc-card em{display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;background:var(--lime,#d7f36b);color:#0b1020;font:700 11px var(--display,sans-serif);font-style:normal}
+.fxc-card.fx-broken .ph{background:linear-gradient(135deg,#1a2540,#12404a)}.fxc-card.fx-broken img{opacity:0}
+@media(max-width:1000px){.fxc-cards{grid-template-columns:repeat(2,1fr)}.fxc-chips{display:none}}
+@media(max-width:560px){.fxc-cards{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.fxc-chips span{animation:none;opacity:1}.fxc-card{transition:none}}
